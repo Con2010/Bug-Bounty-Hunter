@@ -1,6 +1,7 @@
 # Bug Bounty Hunter
 
 A comprehensive web application security testing tool using OWASP ZAP for vulnerability scanning.
+Read Tutorial.md for more details.
 
 ## Features
 
