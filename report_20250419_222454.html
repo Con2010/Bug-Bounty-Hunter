@@ -1,0 +1,200 @@
+
+            <!DOCTYPE html>
+            <html>
+            <head>
+                <title>Bug Bounty Hunter Report - 2025-04-19 22:24:54</title>
+                <style>
+                    body { font-family: Arial, sans-serif; margin: 20px; }
+                    h1, h2, h3 { color: #2c3e50; }
+                    .summary { background-color: #f8f9fa; padding: 15px; border-radius: 5px; }
+                    .vulnerability { margin-bottom: 20px; padding: 15px; border: 1px solid #ddd; border-radius: 5px; }
+                    .high { border-left: 5px solid #e74c3c; }
+                    .medium { border-left: 5px solid #f39c12; }
+                    .low { border-left: 5px solid #3498db; }
+                    .info { border-left: 5px solid #2ecc71; }
+                    table { border-collapse: collapse; width: 100%; }
+                    th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+                    th { background-color: #f2f2f2; }
+                </style>
+            </head>
+            <body>
+                <h1>Bug Bounty Hunter Report</h1>
+                <div class="summary">
+                    <h2>Scan Summary</h2>
+                    <p><strong>Scan Type:</strong> full</p>
+                    <p><strong>Timestamp:</strong> 2025-04-19 22:24:54</p>
+                    <p><strong>Targets Scanned:</strong> 3</p>
+                    <p><strong>Total Vulnerabilities Found:</strong> 9</p>
+                </div>
+            <h2>Vulnerabilities</h2>
+                <div class="vulnerability high">
+                    <h3>Cross-Site Scripting (XSS)</h3>
+                    <p><strong>Severity:</strong> High</p>
+                    <p><strong>Confidence:</strong> High</p>
+                    <p><strong>URL:</strong> {'url': 'https://dhruvgupta-portfolio.vercel.app/', 'name': 'Example Website', 'description': 'Main company website', 'scope': ['https://example.com/*', 'https://api.example.com/*'], 'exclude': ['https://example.com/admin/*', 'https://example.com/login']}/contact?name=test</p>
+                    <p><strong>Description:</strong> Cross-site Scripting (XSS) vulnerability detected</p>
+                
+                <h4>Technical Details</h4>
+                <div class="request-response">
+                    <h5>Request</h5>
+                    <pre>GET /contact?name=<script>alert(1)</script> HTTP/1.1
+Host: example.com</pre>
+                    <h5>Response</h5>
+                    <pre>HTTP/1.1 200 OK
+
+<html>....<script>alert(1)</script>...</html></pre>
+                </div>
+                </div>
+                
+                <div class="vulnerability high">
+                    <h3>Cross-Site Scripting (XSS)</h3>
+                    <p><strong>Severity:</strong> High</p>
+                    <p><strong>Confidence:</strong> High</p>
+                    <p><strong>URL:</strong> {'url': 'https://juice-shop.herokuapp.com', 'name': 'OWASP Juice Shop', 'description': 'Intentionally vulnerable web application for testing', 'scope': ['https://juice-shop.herokuapp.com/*'], 'exclude': []}/contact?name=test</p>
+                    <p><strong>Description:</strong> Cross-site Scripting (XSS) vulnerability detected</p>
+                
+                <h4>Technical Details</h4>
+                <div class="request-response">
+                    <h5>Request</h5>
+                    <pre>GET /contact?name=<script>alert(1)</script> HTTP/1.1
+Host: example.com</pre>
+                    <h5>Response</h5>
+                    <pre>HTTP/1.1 200 OK
+
+<html>....<script>alert(1)</script>...</html></pre>
+                </div>
+                </div>
+                
+                <div class="vulnerability high">
+                    <h3>Cross-Site Scripting (XSS)</h3>
+                    <p><strong>Severity:</strong> High</p>
+                    <p><strong>Confidence:</strong> High</p>
+                    <p><strong>URL:</strong> {'url': 'https://public-firing-range.appspot.com', 'name': 'Google Firing Range', 'description': 'Test bed for web application security scanners', 'scope': ['https://public-firing-range.appspot.com/*'], 'exclude': []}/contact?name=test</p>
+                    <p><strong>Description:</strong> Cross-site Scripting (XSS) vulnerability detected</p>
+                
+                <h4>Technical Details</h4>
+                <div class="request-response">
+                    <h5>Request</h5>
+                    <pre>GET /contact?name=<script>alert(1)</script> HTTP/1.1
+Host: example.com</pre>
+                    <h5>Response</h5>
+                    <pre>HTTP/1.1 200 OK
+
+<html>....<script>alert(1)</script>...</html></pre>
+                </div>
+                </div>
+                
+                <div class="vulnerability medium">
+                    <h3>Insecure Cookie</h3>
+                    <p><strong>Severity:</strong> Medium</p>
+                    <p><strong>Confidence:</strong> High</p>
+                    <p><strong>URL:</strong> {'url': 'https://dhruvgupta-portfolio.vercel.app/', 'name': 'Example Website', 'description': 'Main company website', 'scope': ['https://example.com/*', 'https://api.example.com/*'], 'exclude': ['https://example.com/admin/*', 'https://example.com/login']}/login</p>
+                    <p><strong>Description:</strong> Cookie without Secure flag set</p>
+                
+                <h4>Technical Details</h4>
+                <div class="request-response">
+                    <h5>Request</h5>
+                    <pre>GET /login HTTP/1.1
+Host: example.com</pre>
+                    <h5>Response</h5>
+                    <pre>HTTP/1.1 200 OK
+Set-Cookie: session=abc123; Path=/</pre>
+                </div>
+                </div>
+                
+                <div class="vulnerability medium">
+                    <h3>Content Security Policy (CSP) Header Not Set</h3>
+                    <p><strong>Severity:</strong> Medium</p>
+                    <p><strong>Confidence:</strong> High</p>
+                    <p><strong>URL:</strong> {'url': 'https://dhruvgupta-portfolio.vercel.app/', 'name': 'Example Website', 'description': 'Main company website', 'scope': ['https://example.com/*', 'https://api.example.com/*'], 'exclude': ['https://example.com/admin/*', 'https://example.com/login']}</p>
+                    <p><strong>Description:</strong> Content Security Policy (CSP) header not set</p>
+                
+                <h4>Technical Details</h4>
+                <div class="request-response">
+                    <h5>Request</h5>
+                    <pre>GET / HTTP/1.1
+Host: example.com</pre>
+                    <h5>Response</h5>
+                    <pre>HTTP/1.1 200 OK
+
+<html>...</html></pre>
+                </div>
+                </div>
+                
+                <div class="vulnerability medium">
+                    <h3>Insecure Cookie</h3>
+                    <p><strong>Severity:</strong> Medium</p>
+                    <p><strong>Confidence:</strong> High</p>
+                    <p><strong>URL:</strong> {'url': 'https://juice-shop.herokuapp.com', 'name': 'OWASP Juice Shop', 'description': 'Intentionally vulnerable web application for testing', 'scope': ['https://juice-shop.herokuapp.com/*'], 'exclude': []}/login</p>
+                    <p><strong>Description:</strong> Cookie without Secure flag set</p>
+                
+                <h4>Technical Details</h4>
+                <div class="request-response">
+                    <h5>Request</h5>
+                    <pre>GET /login HTTP/1.1
+Host: example.com</pre>
+                    <h5>Response</h5>
+                    <pre>HTTP/1.1 200 OK
+Set-Cookie: session=abc123; Path=/</pre>
+                </div>
+                </div>
+                
+                <div class="vulnerability medium">
+                    <h3>Content Security Policy (CSP) Header Not Set</h3>
+                    <p><strong>Severity:</strong> Medium</p>
+                    <p><strong>Confidence:</strong> High</p>
+                    <p><strong>URL:</strong> {'url': 'https://juice-shop.herokuapp.com', 'name': 'OWASP Juice Shop', 'description': 'Intentionally vulnerable web application for testing', 'scope': ['https://juice-shop.herokuapp.com/*'], 'exclude': []}</p>
+                    <p><strong>Description:</strong> Content Security Policy (CSP) header not set</p>
+                
+                <h4>Technical Details</h4>
+                <div class="request-response">
+                    <h5>Request</h5>
+                    <pre>GET / HTTP/1.1
+Host: example.com</pre>
+                    <h5>Response</h5>
+                    <pre>HTTP/1.1 200 OK
+
+<html>...</html></pre>
+                </div>
+                </div>
+                
+                <div class="vulnerability medium">
+                    <h3>Insecure Cookie</h3>
+                    <p><strong>Severity:</strong> Medium</p>
+                    <p><strong>Confidence:</strong> High</p>
+                    <p><strong>URL:</strong> {'url': 'https://public-firing-range.appspot.com', 'name': 'Google Firing Range', 'description': 'Test bed for web application security scanners', 'scope': ['https://public-firing-range.appspot.com/*'], 'exclude': []}/login</p>
+                    <p><strong>Description:</strong> Cookie without Secure flag set</p>
+                
+                <h4>Technical Details</h4>
+                <div class="request-response">
+                    <h5>Request</h5>
+                    <pre>GET /login HTTP/1.1
+Host: example.com</pre>
+                    <h5>Response</h5>
+                    <pre>HTTP/1.1 200 OK
+Set-Cookie: session=abc123; Path=/</pre>
+                </div>
+                </div>
+                
+                <div class="vulnerability medium">
+                    <h3>Content Security Policy (CSP) Header Not Set</h3>
+                    <p><strong>Severity:</strong> Medium</p>
+                    <p><strong>Confidence:</strong> High</p>
+                    <p><strong>URL:</strong> {'url': 'https://public-firing-range.appspot.com', 'name': 'Google Firing Range', 'description': 'Test bed for web application security scanners', 'scope': ['https://public-firing-range.appspot.com/*'], 'exclude': []}</p>
+                    <p><strong>Description:</strong> Content Security Policy (CSP) header not set</p>
+                
+                <h4>Technical Details</h4>
+                <div class="request-response">
+                    <h5>Request</h5>
+                    <pre>GET / HTTP/1.1
+Host: example.com</pre>
+                    <h5>Response</h5>
+                    <pre>HTTP/1.1 200 OK
+
+<html>...</html></pre>
+                </div>
+                </div>
+                
+            </body>
+            </html>
+            
