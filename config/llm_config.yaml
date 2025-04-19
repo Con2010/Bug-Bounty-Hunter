@@ -1,0 +1,52 @@
+provider: "openai"  # Options: openai, anthropic, etc.
+api_key: "YOUR_OPENAI_API_KEY_HERE"  # Get from https://platform.openai.com/api-keys
+model: "gpt-3.5-turbo"  # More affordable option than gpt-4
+
+# Analysis Configuration
+analysis_settings:
+  # Temperature setting (0.0-1.0, lower is more deterministic)
+  temperature: 0.3
+  
+  # Maximum tokens to generate in responses
+  max_tokens: 2048
+  
+  # Whether to include code snippets in the analysis
+  include_code_snippets: true
+  
+  # Whether to include remediation suggestions
+  include_remediation: true
+  
+  # Vulnerability categories to focus on (empty list means all categories)
+  focus_categories: []
+  # Example focus categories:
+  # - "sql_injection"
+  # - "xss"
+  # - "csrf"
+  # - "ssrf"
+  # - "path_traversal"
+  
+  # Minimum confidence score (0-100) for reporting vulnerabilities
+  min_confidence: 70
+
+# Prompt Templates
+prompts:
+  # Base prompt for vulnerability analysis
+  vulnerability_analysis: |
+    Analyze the following scan results for security vulnerabilities.
+    Focus on identifying high-risk issues and provide detailed explanations.
+    For each vulnerability found, include:
+    1. Description of the vulnerability
+    2. Severity rating (Critical, High, Medium, Low)
+    3. Potential impact
+    4. Remediation steps
+    
+  # Prompt for JavaScript code analysis
+  js_analysis: |
+    Analyze the following JavaScript code for security vulnerabilities.
+    Look for issues such as:
+    - Insecure data handling
+    - DOM-based XSS
+    - Insecure authentication
+    - Sensitive data exposure
+    - Insecure dependencies
+    - Client-side validation issues

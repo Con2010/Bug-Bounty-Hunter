@@ -1,0 +1,24 @@
+# Target Websites/Applications Configuration
+
+# List of targets to scan
+targets:
+  - url: "https://example.com"
+    name: "Example Website"
+    description: "Main company website"
+    scope:
+      - "https://example.com/*"
+      - "https://api.example.com/*"
+    exclude:
+      - "https://example.com/admin/*"
+      - "https://example.com/login"
+  
+  - url: "https://test.example.com"
+    name: "Test Environment"
+    description: "Testing environment for new features"
+    scope:
+      - "https://test.example.com/*"
+    exclude: []
+
+# You can add more targets by following the same format
+# Each target should have at minimum a url field
+# Other fields are optional but helpful for organization and scope definition

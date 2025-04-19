@@ -1,0 +1,47 @@
+# OWASP ZAP Scanner Configuration
+
+# API Connection Settings
+api_key: "YOUR_ZAP_API_KEY_HERE"
+api_url: "http://localhost:8080"
+
+# Scan Configuration
+scan_settings:
+  # Scan policy (Default is a balanced policy)
+  scan_policy: "Default Policy"
+  
+  # Attack mode (Standard, Safe, or Attack)
+  attack_mode: "Standard"
+  
+  # Whether to use ajax spider in addition to traditional spider
+  use_ajax_spider: true
+  
+  # Maximum scan duration in minutes (0 for unlimited)
+  max_scan_duration: 60
+  
+  # Maximum spider duration in minutes
+  max_spider_duration: 20
+  
+  # Maximum number of URLs to spider (0 for unlimited)
+  max_spider_depth: 5
+  
+  # Thread count for scanning
+  thread_count: 5
+
+# Authentication Settings (if needed)
+authentication:
+  enabled: false
+  username: ""
+  password: ""
+  auth_type: "form"  # form, basic, ntlm, etc.
+  login_url: ""
+  login_form_id: ""
+  username_field: ""
+  password_field: ""
+  
+# Proxy Settings (if needed)
+proxy:
+  enabled: false
+  host: ""
+  port: 8080
+  username: ""
+  password: ""
